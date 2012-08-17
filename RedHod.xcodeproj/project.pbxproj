@@ -20,6 +20,8 @@
 		C210365515DEAE0200D92D56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C210363615DEAE0200D92D56 /* Foundation.framework */; };
 		C210365D15DEAE0200D92D56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C210365B15DEAE0200D92D56 /* InfoPlist.strings */; };
 		C210366015DEAE0200D92D56 /* RedHodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C210365F15DEAE0200D92D56 /* RedHodTests.m */; };
+		C210366A15DEAE3F00D92D56 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C210366915DEAE3F00D92D56 /* AudioToolbox.framework */; };
+		C210367415DEB27300D92D56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C210367315DEB27300D92D56 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +39,23 @@
 		C210363415DEAE0200D92D56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C210363615DEAE0200D92D56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C210363815DEAE0200D92D56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C210363C15DEAE0200D92D56 /* RedHod-Info.plist */ = {isa = PBXFileReference; path = "RedHod-Info.plist"; sourceTree = "<group>"; };
+		C210363C15DEAE0200D92D56 /* RedHod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedHod-Info.plist"; sourceTree = "<group>"; };
 		C210363E15DEAE0200D92D56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C210364015DEAE0200D92D56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C210364215DEAE0200D92D56 /* RedHod-Prefix.pch */ = {isa = PBXFileReference; path = "RedHod-Prefix.pch"; sourceTree = "<group>"; };
-		C210364315DEAE0200D92D56 /* RedHodAppDelegate.h */ = {isa = PBXFileReference; path = RedHodAppDelegate.h; sourceTree = "<group>"; };
+		C210364215DEAE0200D92D56 /* RedHod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedHod-Prefix.pch"; sourceTree = "<group>"; };
+		C210364315DEAE0200D92D56 /* RedHodAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedHodAppDelegate.h; sourceTree = "<group>"; };
 		C210364415DEAE0200D92D56 /* RedHodAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedHodAppDelegate.m; sourceTree = "<group>"; };
-		C210364615DEAE0200D92D56 /* RedHodViewController.h */ = {isa = PBXFileReference; path = RedHodViewController.h; sourceTree = "<group>"; };
+		C210364615DEAE0200D92D56 /* RedHodViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedHodViewController.h; sourceTree = "<group>"; };
 		C210364715DEAE0200D92D56 /* RedHodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedHodViewController.m; sourceTree = "<group>"; };
 		C210364A15DEAE0200D92D56 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RedHodViewController.xib; sourceTree = "<group>"; };
 		C210365115DEAE0200D92D56 /* RedHodTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedHodTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C210365215DEAE0200D92D56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		C210365A15DEAE0200D92D56 /* RedHodTests-Info.plist */ = {isa = PBXFileReference; path = "RedHodTests-Info.plist"; sourceTree = "<group>"; };
+		C210365A15DEAE0200D92D56 /* RedHodTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedHodTests-Info.plist"; sourceTree = "<group>"; };
 		C210365C15DEAE0200D92D56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C210365E15DEAE0200D92D56 /* RedHodTests.h */ = {isa = PBXFileReference; path = RedHodTests.h; sourceTree = "<group>"; };
+		C210365E15DEAE0200D92D56 /* RedHodTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedHodTests.h; sourceTree = "<group>"; };
 		C210365F15DEAE0200D92D56 /* RedHodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedHodTests.m; sourceTree = "<group>"; };
+		C210366915DEAE3F00D92D56 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C210367315DEB27300D92D56 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C210367415DEB27300D92D56 /* AVFoundation.framework in Frameworks */,
+				C210366A15DEAE3F00D92D56 /* AudioToolbox.framework in Frameworks */,
 				C210363515DEAE0200D92D56 /* UIKit.framework in Frameworks */,
 				C210363715DEAE0200D92D56 /* Foundation.framework in Frameworks */,
 				C210363915DEAE0200D92D56 /* CoreGraphics.framework in Frameworks */,
@@ -81,6 +87,8 @@
 		C210362515DEAE0100D92D56 = {
 			isa = PBXGroup;
 			children = (
+				C210367315DEB27300D92D56 /* AVFoundation.framework */,
+				C210366915DEAE3F00D92D56 /* AudioToolbox.framework */,
 				C210363A15DEAE0200D92D56 /* RedHod */,
 				C210365815DEAE0200D92D56 /* RedHodTests */,
 				C210363315DEAE0200D92D56 /* Frameworks */,
