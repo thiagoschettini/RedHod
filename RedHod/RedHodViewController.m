@@ -15,6 +15,8 @@
 @synthesize recordButton, recordButton2, playButton, stopButton;
 
 -(void)recordAudio:(UIButton *)sender {
+    [playButton setHidden: YES];
+    
     NSArray *dirPaths;
     NSString *docsDir;
     NSString *filename;
@@ -63,6 +65,7 @@
 }
 
 -(void)stop{
+    [playButton setHidden: NO];
     stopButton.enabled = NO;
     playButton.enabled = YES;
     recordButton.enabled = YES;
