@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+NSString *fileName;
+
 @class RedHodViewController;
 
-@interface RedHodAppDelegate : UIResponder <UIApplicationDelegate>
+@interface RedHodAppDelegate : UIResponder <UIApplicationDelegate> {
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

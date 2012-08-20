@@ -23,6 +23,7 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+    fileName = [[NSString alloc] initWithString:@""];
     return YES;
 }
 

@@ -7,7 +7,7 @@
 //
 
 // TUTORIAIS PARA VER DEPOIS: http://www.iphonedevsdk.com/forum/iphone-sdk-tutorials/54516-global-variables.html
-
+#import "RedHodAppDelegate.h"
 #import "RedHodViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
@@ -28,8 +28,8 @@
     [currentChapter setImage:nil];
     
     if (sender.tag == 1){
-        filename = @"audioForScene1.caf";
-        
+        //filename = @"audioForScene1.caf"; ---> ESTAVA FUNCIONANDO COM ESTA LINHA APENAS
+        fileName = @"audioForScene1.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(130, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         
@@ -45,7 +45,7 @@
         [self.view addSubview:currentChapter];
         
     }else if(sender.tag == 2){
-        filename = @"audioForScene2.caf";
+        fileName = @"audioForScene2.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(160, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         
@@ -56,37 +56,37 @@
         [self.view addSubview:currentChapter];
 
     }else if(sender.tag == 3){
-        filename = @"audioForScene3.caf";
+        fileName = @"audioForScene3.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 4){
-        filename = @"audioForScene4.caf";
+        fileName = @"audioForScene4.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(240, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 5){
-        filename = @"audioForScene5.caf";
+        fileName = @"audioForScene5.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(280, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 6){
-        filename = @"audioForScene6.caf";
+        fileName = @"audioForScene6.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(320, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 7){
-        filename = @"audioForScene7.caf";
+        fileName = @"audioForScene7.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(360, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 8){
-        filename = @"audioForScene8.caf";
+        fileName = @"audioForScene8.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(400, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
     }else if(sender.tag == 9){
-        filename = @"audioForScene9.caf";
+        fileName = @"audioForScene9.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(440, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
@@ -95,7 +95,7 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     
-    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:filename];
+    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:fileName];
     
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
@@ -167,7 +167,7 @@
     NSError *error;
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:@"sound.caf"];
+    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:fileName];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
