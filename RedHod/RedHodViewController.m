@@ -14,7 +14,7 @@
 
 @synthesize recordButton, recordButton2, playButton, stopButton;
 
-@synthesize chap01, chap02, chap03, chap04, chap05, chap06, chap07, chap08, chap09;
+@synthesize chap01, chap02, chap03, chap04, chap05, chap06, chap07, chap08, chap09, currentChapter;
 
 -(void)recordAudio:(UIButton *)sender {
     [playButton setHidden: YES];
@@ -23,33 +23,71 @@
     NSString *docsDir;
     NSString *filename;
     
+    [currentChapter setImage:nil];
     
     if (sender.tag == 1){
         filename = @"audioForScene1.caf";
-        [chap02 setNeedsDisplay];
-        UIImage *chap01BtnImageSel = [UIImage imageNamed:@"capitulo1-sel.png"];
-        [chap01 setBackgroundImage:chap01BtnImageSel forState:UIControlStateNormal];
-        [self.view addSubview:chap01];
+        
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(130, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        
+        textView.editable = NO;
+        //myTextView.userInteractionEnabled = NO;
+        textView.text = @"Um dia sua Mãe lhe chamou e lhe disse: \
+        - Chapeuzinho, leve este pedaço de bolo e essa garrafa de vinho para sua avó. \
+        Ela está doente e fraca, e isto vai fazê-la ficar melhor. Comporte-se no caminho, e de modo algum saia da \estrada, ou você pode cair e quebrar a garrafa de vinho e ele é muito importante para a recuperação de sua avó. \
+        Chapeuzinho prometeu que obedeceria a sua mãe e pegando a cesta com o bolo e o vinho, despediu-se e partiu. Sua avó morava no meio da floresta, distante uma hora e meia da vila. ";
+        //some other setup like setting the font for the UITextView...
+        
+        [textView reloadInputViews];
+        [self.view addSubview:currentChapter];
+        
     }else if(sender.tag == 2){
         filename = @"audioForScene2.caf";
-        [chap01 setNeedsDisplay];
-        UIImage *chap02BtnImageSel = [UIImage imageNamed:@"capitulo2-sel.png"];
-        [chap02 setBackgroundImage:chap02BtnImageSel forState:UIControlStateNormal];
-        [self.view addSubview:chap02];
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(160, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        
+        textView.editable = NO;
+        //myTextView.userInteractionEnabled = NO;
+        textView.text = @"Texto 2";        
+        [textView reloadInputViews];        
+        [self.view addSubview:currentChapter];
+
     }else if(sender.tag == 3){
         filename = @"audioForScene3.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 4){
         filename = @"audioForScene4.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(240, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 5){
         filename = @"audioForScene5.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(280, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 6){
         filename = @"audioForScene6.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(320, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 7){
         filename = @"audioForScene7.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(360, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 8){
         filename = @"audioForScene8.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(400, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }else if(sender.tag == 9){
         filename = @"audioForScene9.caf";
+        currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(440, 300, 20, 10)];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
+        [self.view addSubview:currentChapter];
     }
     
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -172,6 +210,12 @@
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_narracao.jpg"]];
     backgroundView.frame = self.view.bounds;
     [self.view addSubview:backgroundView];
+    
+    UITextView *textView = [[UITextView alloc] init];
+    textView.frame = CGRectMake(200,20,282.0,110.0);
+    textView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:textView];
+    [textView sizeToFit];
     
     UIImage *chap01BtnImage = [UIImage imageNamed:@"capitulo1.png"];
     UIImage *chap02BtnImage = [UIImage imageNamed:@"capitulo2.png"];

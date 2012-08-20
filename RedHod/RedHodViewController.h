@@ -28,6 +28,9 @@
     UIButton *chap07;
     UIButton *chap08;
     UIButton *chap09;
+    
+    UIImageView *currentChapter;
+    UITextView *textView;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
@@ -44,6 +47,9 @@
 @property (nonatomic, retain) IBOutlet UIButton *chap07;
 @property (nonatomic, retain) IBOutlet UIButton *chap08;
 @property (nonatomic, retain) IBOutlet UIButton *chap09;
+
+@property (nonatomic, retain) UIImageView *currentChapter;
+@property (nonatomic, retain) UITextView *textView;
 
 -(IBAction)recordAudio;
 -(IBAction)playAudio;
