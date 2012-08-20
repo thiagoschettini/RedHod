@@ -22,6 +22,7 @@
     self.viewController = [[RedHodViewController alloc] initWithNibName:@"RedHodViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
     return YES;
 }
 
