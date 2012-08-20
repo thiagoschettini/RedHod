@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 LPJ. All rights reserved.
 //
 
+// TUTORIAIS PARA VER DEPOIS: http://www.iphonedevsdk.com/forum/iphone-sdk-tutorials/54516-global-variables.html
+
 #import "RedHodViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
