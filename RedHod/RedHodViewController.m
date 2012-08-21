@@ -14,84 +14,98 @@
 
 @implementation RedHodViewController
 
-@synthesize recordButton, recordButton2, playButton, stopButton;
-
+@synthesize recordButton, playButton, stopButton;
 @synthesize chap01, chap02, chap03, chap04, chap05, chap06, chap07, chap08, chap09, currentChapter;
+@synthesize textImage, textToRead;
 
--(void)recordAudio:(UIButton *)sender {
-    [playButton setHidden: YES];
-    
-    NSArray *dirPaths;
-    NSString *docsDir;
-    NSString *filename;
-    
+-(void)chapterSelection:(UIButton *)sender {
+    //[playButton setHidden: YES];
     [currentChapter setImage:nil];
+    [textImage setImage:nil];
+    //NSString *filename;
+    [recordButton setHidden:NO];
+    [playButton setHidden:NO];
+    [stopButton setHidden:NO];
+    CGPoint bottomOffset = CGPointMake(0, 0);
+    [textToRead setContentOffset:bottomOffset animated:YES];
     
     if (sender.tag == 1){
         //filename = @"audioForScene1.caf"; ---> ESTAVA FUNCIONANDO COM ESTA LINHA APENAS
         fileName = @"audioForScene1.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(130, 300, 20, 10)];
-        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
-        
-        textView.editable = NO;
-        //myTextView.userInteractionEnabled = NO;
-        textView.text = @"Um dia sua Mãe lhe chamou e lhe disse: \
-        - Chapeuzinho, leve este pedaço de bolo e essa garrafa de vinho para sua avó. \
-        Ela está doente e fraca, e isto vai fazê-la ficar melhor. Comporte-se no caminho, e de modo algum saia da \estrada, ou você pode cair e quebrar a garrafa de vinho e ele é muito importante para a recuperação de sua avó. \
-        Chapeuzinho prometeu que obedeceria a sua mãe e pegando a cesta com o bolo e o vinho, despediu-se e partiu. Sua avó morava no meio da floresta, distante uma hora e meia da vila. ";
-        //some other setup like setting the font for the UITextView...
-        
-        [textView reloadInputViews];
+        [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];        
         [self.view addSubview:currentChapter];
-        
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 311)];
+        [textImage setImage:[UIImage imageNamed:@"chap01text.png"]];
     }else if(sender.tag == 2){
         fileName = @"audioForScene2.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(160, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
-        
-        textView.editable = NO;
-        //myTextView.userInteractionEnabled = NO;
-        textView.text = @"Texto 2";        
-        [textView reloadInputViews];        
         [self.view addSubview:currentChapter];
-
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 1024)];
+        [textImage setImage:[UIImage imageNamed:@"chap02text.png"]];
     }else if(sender.tag == 3){
         fileName = @"audioForScene3.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 108)];
+        [textImage setImage:[UIImage imageNamed:@"chap03text.png"]];
     }else if(sender.tag == 4){
         fileName = @"audioForScene4.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(240, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 231)];
+        [textImage setImage:[UIImage imageNamed:@"chap04text.png"]];
     }else if(sender.tag == 5){
         fileName = @"audioForScene5.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(280, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 257)];
+        [textImage setImage:[UIImage imageNamed:@"chap05text.png"]];
     }else if(sender.tag == 6){
         fileName = @"audioForScene6.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(320, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 252)];
+        [textImage setImage:[UIImage imageNamed:@"chap06text.png"]];
     }else if(sender.tag == 7){
         fileName = @"audioForScene7.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(360, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 537)];
+        [textImage setImage:[UIImage imageNamed:@"chap07text.png"]];
     }else if(sender.tag == 8){
         fileName = @"audioForScene8.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(400, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 456)];
+        [textImage setImage:[UIImage imageNamed:@"chap08text.png"]];
     }else if(sender.tag == 9){
         fileName = @"audioForScene9.caf";
         currentChapter = [[UIImageView alloc] initWithFrame:CGRectMake(440, 300, 20, 10)];
         [currentChapter setImage:[UIImage imageNamed:@"selected-mark.png"]];
         [self.view addSubview:currentChapter];
+        textImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 311)];
+        [textImage setImage:[UIImage imageNamed:@"chap09text.png"]];
     }
+    [textToRead addSubview:textImage];
+    [textToRead setContentSize:CGSizeMake(textImage.frame.size.width, textImage.frame.size.height+5)];
+    [textToRead setScrollEnabled:YES];
+}
+
+-(void)recordAudio{
+    stopButton.enabled = YES;
+    playButton.enabled = NO;
+    recordButton.enabled = NO;
     
+    NSArray *dirPaths;
+    NSString *docsDir;
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     
@@ -130,7 +144,7 @@
 }
 
 -(void)stop{
-    [playButton setHidden: NO];
+    //[playButton setHidden: NO];
     stopButton.enabled = NO;
     playButton.enabled = YES;
     recordButton.enabled = YES;
@@ -162,6 +176,10 @@
 }*/
 
 -(void)playAudio{
+    stopButton.enabled = YES;
+    playButton.enabled = NO;
+    recordButton.enabled = NO;
+    
     NSArray *dirPaths;
     NSString *docsDir;
     NSError *error;
@@ -171,7 +189,8 @@
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    [audioPlayer play];    
+    [audioPlayer play];
+    NSLog(@"%@", fileName);
 }
 
 - (void)didReceiveMemoryWarning
@@ -212,12 +231,27 @@
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_narracao.jpg"]];
     backgroundView.frame = self.view.bounds;
     [self.view addSubview:backgroundView];
+
+    UIImage *recordImage = [UIImage imageNamed:@"rec.png"];
+    recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    recordButton.frame = CGRectMake(30, 200, 100, 37);
+    [recordButton setBackgroundImage:recordImage forState:UIControlStateNormal];
+    [self.view addSubview:recordButton];
+    [recordButton setHidden:YES];
     
-    UITextView *textView = [[UITextView alloc] init];
-    textView.frame = CGRectMake(200,20,282.0,110.0);
-    textView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:textView];
-    [textView sizeToFit];
+    UIImage *playImage = [UIImage imageNamed:@"play.png"];
+    playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    playButton.frame = CGRectMake(200, 200, 100, 37);
+    [playButton setBackgroundImage:playImage forState:UIControlStateNormal];
+    [self.view addSubview:playButton];
+    [playButton setHidden:YES];
+    
+    UIImage *stopImage = [UIImage imageNamed:@"stop.png"];
+    stopButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    stopButton.frame = CGRectMake(350, 200, 100, 37);
+    [stopButton setBackgroundImage:stopImage forState:UIControlStateNormal];
+    [self.view addSubview:stopButton];
+    [stopButton setHidden:YES];
     
     UIImage *chap01BtnImage = [UIImage imageNamed:@"capitulo1.png"];
     UIImage *chap02BtnImage = [UIImage imageNamed:@"capitulo2.png"];
@@ -283,11 +317,15 @@
     chap09.tag = 9;
     [self.view addSubview:chap09];
     
-    playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-   /*UIImage *recordButtonImage = [UIImage imageNamed:@"capitulo1.png"];
+    textToRead = [[UIScrollView alloc] initWithFrame:CGRectMake(20, 20, 340, 170)];
+    //[textToRead setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:textToRead];
+    
+    /*playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIImage *recordButtonImage = [UIImage imageNamed:@"capitulo1.png"];
     recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *recordButtonImage2 = [UIImage imageNamed:@"capitulo2.png"];
-    recordButton2 = [UIButton buttonWithType:UIButtonTypeCustom];*/
+    recordButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
     stopButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     
@@ -299,7 +337,7 @@
     
     stopButton.frame = CGRectMake(100, 90, 100, 30);
     [stopButton setTitle:@"Stop" forState:UIControlStateNormal];
-    [self.view addSubview:stopButton];
+    [self.view addSubview:stopButton];*/
     
     /*recordButton.frame = CGRectMake(100, 140, 59, 64);
     //[recordButton setTitle:@"Record" forState:UIControlStateNormal];
@@ -319,15 +357,18 @@
     
     //LISTEN FOR CLICKS
     [playButton addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
-    [chap01 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap02 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap03 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap04 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap05 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap06 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap07 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap08 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [chap09 addTarget:self action:@selector(recordAudio:) forControlEvents:UIControlEventTouchUpInside];
+    [chap01 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap02 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap03 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap04 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap05 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap06 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap07 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap08 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    [chap09 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
+    //[stopButton addTarget:self action:@selector(stop) forControlEvents:UIControlEventTouchUpInside];
+    //[playButton addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
+    [recordButton addTarget:self action:@selector(recordAudio) forControlEvents:UIControlEventTouchUpInside];
     [stopButton addTarget:self action:@selector(stop) forControlEvents:UIControlEventTouchUpInside];
 }
 

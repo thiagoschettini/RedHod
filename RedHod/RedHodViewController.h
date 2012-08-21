@@ -16,7 +16,6 @@
     AVAudioPlayer *audioPlayer;
     UIButton *playButton;
     UIButton *recordButton;
-    UIButton *recordButton2;
     UIButton *stopButton;
     
     UIButton *chap01;
@@ -28,14 +27,14 @@
     UIButton *chap07;
     UIButton *chap08;
     UIButton *chap09;
-    
     UIImageView *currentChapter;
-    UITextView *textView;
+    
+    IBOutlet UIScrollView *textToRead;
+    UIImageView *textImage;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) IBOutlet UIButton *recordButton;
-@property (nonatomic, retain) IBOutlet UIButton *recordButton2;
 @property (nonatomic, retain) IBOutlet UIButton *stopButton;
 
 @property (nonatomic, retain) IBOutlet UIButton *chap01;
@@ -47,9 +46,10 @@
 @property (nonatomic, retain) IBOutlet UIButton *chap07;
 @property (nonatomic, retain) IBOutlet UIButton *chap08;
 @property (nonatomic, retain) IBOutlet UIButton *chap09;
-
 @property (nonatomic, retain) UIImageView *currentChapter;
-@property (nonatomic, retain) UITextView *textView;
+
+@property (nonatomic, retain) UIView *textToRead;
+@property (nonatomic, retain) UIImageView *textImage;
 
 -(IBAction)recordAudio;
 -(IBAction)playAudio;
