@@ -10,14 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface RedHodViewController : UIViewController 
-        <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 {
-    AVAudioRecorder *audioRecorder;
-    AVAudioPlayer *audioPlayer;
-    UIButton *playButton;
-    UIButton *recordButton;
-    UIButton *stopButton;
-    
     UIButton *chap01;
     UIButton *chap02;
     UIButton *chap03;
@@ -32,10 +25,6 @@
     IBOutlet UIScrollView *textToRead;
     UIImageView *textImage;
 }
-
-@property (nonatomic, retain) IBOutlet UIButton *playButton;
-@property (nonatomic, retain) IBOutlet UIButton *recordButton;
-@property (nonatomic, retain) IBOutlet UIButton *stopButton;
 
 @property (nonatomic, retain) IBOutlet UIButton *chap01;
 @property (nonatomic, retain) IBOutlet UIButton *chap02;

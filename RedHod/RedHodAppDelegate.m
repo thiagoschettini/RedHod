@@ -9,6 +9,7 @@
 #import "RedHodAppDelegate.h"
 
 #import "RedHodViewController.h"
+#import "AudioControls.h"
 
 @implementation RedHodAppDelegate
 

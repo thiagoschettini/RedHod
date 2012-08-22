@@ -22,6 +22,7 @@
 		C210366015DEAE0200D92D56 /* RedHodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C210365F15DEAE0200D92D56 /* RedHodTests.m */; };
 		C210366A15DEAE3F00D92D56 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C210366915DEAE3F00D92D56 /* AudioToolbox.framework */; };
 		C210367415DEB27300D92D56 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C210367315DEB27300D92D56 /* AVFoundation.framework */; };
+		C25BE61E15E526B30075D817 /* AudioControls.m in Sources */ = {isa = PBXBuildFile; fileRef = C25BE61D15E526B30075D817 /* AudioControls.m */; };
 		C28AAF0E15E2BF16002759EA /* selected-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C28AAF0D15E2BF16002759EA /* selected-mark.png */; };
 		C2ADF05C15E28E7C00D905EA /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2ADF05B15E28E7C00D905EA /* background.jpg */; };
 		C2C9A5F615E2A07C003A0AD5 /* bg_narracao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2C9A5EC15E2A07C003A0AD5 /* bg_narracao.jpg */; };
@@ -80,6 +81,8 @@
 		C210365F15DEAE0200D92D56 /* RedHodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedHodTests.m; sourceTree = "<group>"; };
 		C210366915DEAE3F00D92D56 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C210367315DEB27300D92D56 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C25BE61C15E526B30075D817 /* AudioControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioControls.h; path = Lib/AudioControls.h; sourceTree = "<group>"; };
+		C25BE61D15E526B30075D817 /* AudioControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioControls.m; path = Lib/AudioControls.m; sourceTree = "<group>"; };
 		C28AAF0D15E2BF16002759EA /* selected-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selected-mark.png"; path = "Resources/menu_narracao/selected-mark.png"; sourceTree = "<group>"; };
 		C2ADF05B15E28E7C00D905EA /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
 		C2C9A5EC15E2A07C003A0AD5 /* bg_narracao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg_narracao.jpg; path = Resources/menu_narracao/bg_narracao.jpg; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		C210363A15DEAE0200D92D56 /* RedHod */ = {
 			isa = PBXGroup;
 			children = (
+				C25BE61A15E526690075D817 /* Library */,
 				C210364315DEAE0200D92D56 /* RedHodAppDelegate.h */,
 				C210364415DEAE0200D92D56 /* RedHodAppDelegate.m */,
 				C210364615DEAE0200D92D56 /* RedHodViewController.h */,
@@ -206,6 +210,15 @@
 				C210365B15DEAE0200D92D56 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C25BE61A15E526690075D817 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C25BE61C15E526B30075D817 /* AudioControls.h */,
+				C25BE61D15E526B30075D817 /* AudioControls.m */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 		C2ADF05A15E28E6800D905EA /* Resources */ = {
@@ -381,6 +394,7 @@
 				C210364115DEAE0200D92D56 /* main.m in Sources */,
 				C210364515DEAE0200D92D56 /* RedHodAppDelegate.m in Sources */,
 				C210364815DEAE0200D92D56 /* RedHodViewController.m in Sources */,
+				C25BE61E15E526B30075D817 /* AudioControls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

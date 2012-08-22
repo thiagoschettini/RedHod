@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-NSString *fileName;
+//NSString *fileName;
 
 @class RedHodViewController;
 

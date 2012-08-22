@@ -7,14 +7,14 @@
 //
 
 // TUTORIAIS PARA VER DEPOIS: http://www.iphonedevsdk.com/forum/iphone-sdk-tutorials/54516-global-variables.html
-#import "RedHodAppDelegate.h"
 #import "RedHodViewController.h"
+#import "AudioControls.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation RedHodViewController
 
-@synthesize recordButton, playButton, stopButton;
+//@synthesize recordButton, playButton, stopButton;
 @synthesize chap01, chap02, chap03, chap04, chap05, chap06, chap07, chap08, chap09, currentChapter;
 @synthesize textImage, textToRead;
 
@@ -23,9 +23,14 @@
     [currentChapter setImage:nil];
     [textImage setImage:nil];
     //NSString *filename;
-    [recordButton setHidden:NO];
-    [playButton setHidden:NO];
-    [stopButton setHidden:NO];
+
+    //[recordButton setHidden:NO];
+    //[playButton setHidden:NO];
+    //[stopButton setHidden:NO];
+    
+    AudioControls *audioControls = [[AudioControls alloc] init];
+    [audioControls resetButtons];
+    
     CGPoint bottomOffset = CGPointMake(0, 0);
     [textToRead setContentOffset:bottomOffset animated:YES];
     
@@ -99,99 +104,7 @@
     [textToRead setScrollEnabled:YES];
 }
 
--(void)recordAudio{
-    stopButton.enabled = YES;
-    playButton.enabled = NO;
-    recordButton.enabled = NO;
-    
-    NSArray *dirPaths;
-    NSString *docsDir;
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    
-    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:fileName];
-    
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    NSDictionary *recordSettings = [NSDictionary 
-                                    dictionaryWithObjectsAndKeys:
-                                    [NSNumber numberWithInt:AVAudioQualityMin],
-                                    AVEncoderAudioQualityKey,
-                                    [NSNumber numberWithInt:16], 
-                                    AVEncoderBitRateKey,
-                                    [NSNumber numberWithInt: 2], 
-                                    AVNumberOfChannelsKey,
-                                    [NSNumber numberWithFloat:44100.0], 
-                                    AVSampleRateKey,
-                                    nil];
-    
-    NSError *error = nil;
-    
-    audioRecorder = [[AVAudioRecorder alloc] initWithURL:soundFileURL settings:recordSettings error:&error];
-    
-    if(error){
-        NSLog(@"error: %@", [error localizedDescription]);
-    }else{
-        [audioRecorder prepareToRecord];
-    }    
-    
-    if(!audioRecorder.recording){
-        playButton.enabled = NO;
-        stopButton.enabled = YES;
-        [audioRecorder record];
-    }
-    NSLog(@"url arquivo audio: %@", audioRecorder.url);
-}
 
--(void)stop{
-    //[playButton setHidden: NO];
-    stopButton.enabled = NO;
-    playButton.enabled = YES;
-    recordButton.enabled = YES;
-    
-    if(audioRecorder.recording){
-        [audioRecorder stop];
-    }else if(audioPlayer.playing){
-        [audioPlayer stop];
-    }
-}
-
-/*-(void)playAudio{
-    if(!audioRecorder.recording){
-        stopButton.enabled = YES;
-        recordButton.enabled = NO;
-        
-        NSError *error;
-        
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioRecorder.url error:&error];
-        
-        audioPlayer.delegate = self;
-        
-        if(error){
-            NSLog(@"error: %@", [error localizedDescription]);
-        }else{
-            [audioPlayer play];
-        }
-    }
-}*/
-
--(void)playAudio{
-    stopButton.enabled = YES;
-    playButton.enabled = NO;
-    recordButton.enabled = NO;
-    
-    NSArray *dirPaths;
-    NSString *docsDir;
-    NSError *error;
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:fileName];
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    [audioPlayer play];
-    NSLog(@"%@", fileName);
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -211,6 +124,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -224,6 +138,7 @@
 {
     [super viewDidAppear:animated];
     
+    AudioControls *audioControls = [[AudioControls alloc] init];
     //COLOCANDO OS CODIGOS DENTRO DESTA FUNCAO FAZEMOS COM QUE TUDO ACONTECA DEPOIS
     //QUE A VIEW JA ESTEJA CARREGADA. PORTANTO NAO TEMOS SELF>BOUNDS RETORNA NA
     //ORIENTACAO CORRETA
@@ -231,27 +146,8 @@
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_narracao.jpg"]];
     backgroundView.frame = self.view.bounds;
     [self.view addSubview:backgroundView];
-
-    UIImage *recordImage = [UIImage imageNamed:@"rec.png"];
-    recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    recordButton.frame = CGRectMake(30, 200, 100, 37);
-    [recordButton setBackgroundImage:recordImage forState:UIControlStateNormal];
-    [self.view addSubview:recordButton];
-    [recordButton setHidden:YES];
     
-    UIImage *playImage = [UIImage imageNamed:@"play.png"];
-    playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    playButton.frame = CGRectMake(200, 200, 100, 37);
-    [playButton setBackgroundImage:playImage forState:UIControlStateNormal];
-    [self.view addSubview:playButton];
-    [playButton setHidden:YES];
     
-    UIImage *stopImage = [UIImage imageNamed:@"stop.png"];
-    stopButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    stopButton.frame = CGRectMake(350, 200, 100, 37);
-    [stopButton setBackgroundImage:stopImage forState:UIControlStateNormal];
-    [self.view addSubview:stopButton];
-    [stopButton setHidden:YES];
     
     UIImage *chap01BtnImage = [UIImage imageNamed:@"capitulo1.png"];
     UIImage *chap02BtnImage = [UIImage imageNamed:@"capitulo2.png"];
@@ -353,10 +249,12 @@
     
     //playButton.enabled = NO;
     //stopButton.enabled = NO;
-    
-    
+    [audioControls drawControlButtons];
+    [self.view addSubview:audioControls.recordButton];
+    [self.view addSubview:audioControls.playButton];
+    [self.view addSubview:audioControls.stopButton];
     //LISTEN FOR CLICKS
-    [playButton addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
+    [audioControls.playButton addTarget:self action:@selector([audioControls playAudio:]) forControlEvents:UIControlEventTouchUpInside];
     [chap01 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
     [chap02 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
     [chap03 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
@@ -368,8 +266,8 @@
     [chap09 addTarget:self action:@selector(chapterSelection:) forControlEvents:UIControlEventTouchUpInside];
     //[stopButton addTarget:self action:@selector(stop) forControlEvents:UIControlEventTouchUpInside];
     //[playButton addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
-    [recordButton addTarget:self action:@selector(recordAudio) forControlEvents:UIControlEventTouchUpInside];
-    [stopButton addTarget:self action:@selector(stop) forControlEvents:UIControlEventTouchUpInside];
+    [audioControls.recordButton addTarget:self action:@selector(audioControls:recordAudio:) forControlEvents:UIControlEventTouchUpInside];
+    [audioControls.stopButton addTarget:self action:@selector(audioControls:stop:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
